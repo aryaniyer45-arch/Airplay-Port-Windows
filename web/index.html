@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AirPlay Receiver</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- blurred album-art backdrop (fills when audio plays) -->
+  <div id="backdrop"></div>
+  <div id="backdrop-tint"></div>
+
+  <main class="stage">
+    <!-- top bar -->
+    <header class="topbar">
+      <div class="brand">
+        <span class="logo">⟡</span>
+        <span>AirPlay Receiver</span>
+      </div>
+      <div id="chip" class="chip idle">
+        <span class="dot"></span><span id="chip-text">Idle</span>
+      </div>
+    </header>
+
+    <!-- NOW PLAYING -->
+    <section id="playing" class="playing hidden">
+      <div class="art-wrap">
+        <img id="art" class="art" alt="album art">
+        <div class="art-glow"></div>
+      </div>
+      <div class="track">
+        <div id="title" class="title">—</div>
+        <div id="artist" class="artist"></div>
+        <div id="album" class="album"></div>
+        <div class="eq" id="eq"><i></i><i></i><i></i><i></i><i></i></div>
+        <div class="controls">
+          <button class="mbtn" id="prev" title="Previous">⏮</button>
+          <button class="mbtn big" id="playpause" title="Play / Pause">⏸</button>
+          <button class="mbtn" id="next" title="Next">⏭</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- IDLE / SETUP -->
+    <section id="idle" class="hero">
+      <div id="runningBanner" class="runbanner hidden">
+        <span><span class="livedot"></span> Receiver on as “<b id="runName"></b>” — discoverable now</span>
+        <button id="offBtn" class="link">Turn off</button>
+      </div>
+      <h1 class="hero-title">Beam your <span class="grad">iPhone</span> here</h1>
+      <p class="hero-sub">Screen mirroring &amp; AirPlay audio, on your PC.</p>
+
+      <div class="namecard">
+        <label>Device name</label>
+        <input id="name" type="text" placeholder="Windows PC" spellcheck="false">
+      </div>
+
+      <button id="startBtn" class="cta">Start receiver</button>
+
+      <button id="settingsToggle" class="link">Settings ▾</button>
+      <div id="settings" class="settings hidden">
+        <div class="row">
+          <label>Performance</label>
+          <select id="preset"></select>
+        </div>
+        <div class="row">
+          <label>GPU</label>
+          <select id="sink"></select>
+        </div>
+        <label class="check"><input id="fullscreen" type="checkbox"> Fullscreen mirror</label>
+      </div>
+
+      <div id="engineWarn" class="warn hidden">
+        UxPlay engine not found.
+        <button id="locateBtn" class="link">Locate uxplay.exe</button>
+      </div>
+    </section>
+
+    <!-- active footer (stop) -->
+    <footer id="activeBar" class="activebar hidden">
+      <div class="barleft">
+        <div class="hint" id="activeHint">Ready — pick this PC on your iPhone.</div>
+        <div class="tip">Can’t see this PC on your iPhone/iPad? Turn its Wi-Fi off and back on, then reopen Control Center.</div>
+        <div class="tip">First time? If Windows asks to allow firewall or admin access, click <b>Yes / Allow</b> — that’s what makes this PC visible.</div>
+      </div>
+      <div class="barright">
+        <div class="fsnote">Mirror: <kbd>Alt</kbd>+<kbd>Enter</kbd> for fullscreen</div>
+        <button id="backBtn" class="ghost">Back to menu</button>
+      </div>
+    </footer>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
