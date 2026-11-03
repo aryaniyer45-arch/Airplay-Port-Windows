@@ -24,8 +24,6 @@ No account, no Apple software required.
 
 Grab the latest from the **[Releases](../../releases)** page:
 
-- **`AirPlayReceiver-Setup.exe`** — installer (recommended). Installs the app,
-  sets up the firewall once, adds a shortcut. After that the app opens instantly.
 - **`AirPlayMirror-portable.zip`** — no‑install version. Extract anywhere and run
   `AirPlayMirror.exe`. The first launch asks once to allow firewall access.
 
